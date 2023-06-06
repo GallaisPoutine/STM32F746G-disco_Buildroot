@@ -20,6 +20,9 @@ build:
 	cp $(dir_buildroot)/output/images/stm32f746-disco.dtb ${dir_publish}/
 	cp $(dir_buildroot)/output/images/zImage ${dir_publish}/
 
+menuconfig:
+	make -C $(dir_buildroot) menuconfig
+
 saveconfig:
 	cp -fv $(dir_buildroot)/.config $(dir_configs)/buildroot
 
