@@ -1,4 +1,4 @@
-url_buildroot = https://buildroot.org/downloads/buildroot-2017.02.9.tar.gz
+url_buildroot = https://buildroot.org/downloads/buildroot-2023.05-rc3.tar.gz
 archive_buildroot = buildroot.tar.gz
 system_image = stm32f746g-disco_system.uImage
 dir_download = downloads
@@ -24,7 +24,7 @@ saveconfig:
 	cp -fv $(dir_buildroot)/.config $(dir_configs)/buildroot
 
 flash_bootloader:
-	cd $(dir_buildroot)/output/build/host-openocd-0.10.0/tcl && ../../../host/usr/bin/openocd \
+	cd $(dir_buildroot)/output/build/host-openocd-0.12.0/tcl && ../../../host/usr/bin/openocd \
 		-f board/stm32f7discovery.cfg \
 		-c "program ../../../images/u-boot-spl.bin 0x08000000" \
 		-c "program ../../../images/u-boot.bin 0x08008000" \
