@@ -20,6 +20,9 @@ build:
 	cp $(dir_buildroot)/output/images/stm32f746-disco.dtb ${dir_publish}/
 	cp $(dir_buildroot)/output/images/zImage ${dir_publish}/
 
+saveconfig:
+	cp -fv $(dir_buildroot)/.config $(dir_configs)/buildroot
+
 flash_bootloader:
 	cd $(dir_buildroot)/output/build/host-openocd-0.10.0/tcl && ../../../host/usr/bin/openocd \
 		-f board/stm32f7discovery.cfg \
